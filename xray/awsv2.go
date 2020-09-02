@@ -126,8 +126,6 @@ func pushHandlersV2(c *aws.Client) {
 	c.Handlers.Sign.PushFrontNamed(xRayBeforeSignHandlerV2)
 	c.Handlers.Unmarshal.PushFrontNamed(xRayBeforeUnmarshalHandlerV2)
 	c.Handlers.Unmarshal.PushBackNamed(xRayAfterUnmarshalHandlerV2)
-	c.Handlers.Retry.PushFrontNamed(xRayBeforeRetryHandlerV2)
-	c.Handlers.AfterRetry.PushBackNamed(xRayAfterRetryHandlerV2)
 }
 
 // AWSv2 adds X-Ray tracing to an AWS V2 client.
